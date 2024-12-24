@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuração de Horários</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Configuração de Horários</h1>
+
+    <div class="section" id="horario-padrao">
+        <h2>Horário Padrão</h2>
+        <div id="dias-semana">
+            <div class="dia-semana">
+                <label>Dia da Semana</label>
+                <select class="dia-semana-select">
+                    <option value="segunda">Segunda</option>
+                    <option value="terça">Terça</option>
+                    <option value="quarta">Quarta</option>
+                    <option value="quinta">Quinta</option>
+                    <option value="sexta">Sexta</option>
+                    <option value="sábado">Sábado</option>
+                    <option value="domingo">Domingo</option>
+                </select>
+                <div class="periodo">
+                    <label>Início:</label>
+                    <input type="time" class="hora-inicio" />
+                    <label>Fim:</label>
+                    <input type="time" class="hora-fim" />
+                </div>
+            </div>
+        </div>
+        <button onclick="addDiaSemana()">+ Adicionar Dia</button>
+    </div>
+
+    <div class="section" id="intervalos-datas">
+        <h2>Intervalos de Datas</h2>
+        <div id="lista-intervalos">
+            <div class="intervalo">
+                <label>Data Início</label>
+                <input type="date" class="data-inicio">
+                <label>Data Fim</label>
+                <input type="date" class="data-fim">
+                <div class="periodo">
+                    <label>Início:</label>
+                    <input type="time" class="hora-inicio" />
+                    <label>Fim:</label>
+                    <input type="time" class="hora-fim" />
+                </div>
+            </div>
+        </div>
+        <button onclick="addIntervalo()">+ Adicionar Intervalo</button>
+    </div>
+
+    <div class="section" id="datas-especificas">
+        <h2>Datas Específicas</h2>
+        <div id="lista-datas">
+            <div class="data-especifica">
+                <label>Data</label>
+                <input type="date" class="data">
+                <label>Disponível:</label>
+                <select class="disponivel">
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="addDataEspecifica()">+ Adicionar Data</button>
+    </div>
+
+    <button id="exportar-json" onclick="exportarJSON()">Exportar JSON</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
