@@ -1,5 +1,5 @@
-// Função para adicionar um novo dia da semana no horário padrão
-function addDiaSemana() {
+// Função para adicionar um novo dia da semana no horário padrão, opcionalmente com valores predefinidos
+function addDiaSemana(predefinido = null) {
     const container = document.getElementById("dias-semana");
     const novoDia = document.createElement("div");
     novoDia.className = "dia-semana";
@@ -16,11 +16,15 @@ function addDiaSemana() {
         </select>
         <div class="periodo">
             <label>Início:</label>
-            <input type="time" class="hora-inicio" />
+            <input type="time" class="hora-inicio" value="${predefinido?.hora_inicio || ''}" />
             <label>Fim:</label>
-            <input type="time" class="hora-fim" />
+            <input type="time" class="hora-fim" value="${predefinido?.hora_fim || ''}" />
         </div>
+        <button class="btn-delete" onclick="removerElemento(this)">Deletar</button>
     `;
+    if (predefinido?.dia_semana) {
+        novoDia.querySelector(".dia-semana-select").value = predefinido.dia_semana;
+    }
     container.appendChild(novoDia);
 }
 
@@ -40,6 +44,7 @@ function addIntervalo() {
             <label>Fim:</label>
             <input type="time" class="hora-fim" />
         </div>
+        <button class="btn-delete" onclick="removerElemento(this)">Deletar</button>
     `;
     container.appendChild(novoIntervalo);
 }
@@ -57,6 +62,7 @@ function addDataEspecifica() {
             <option value="true">Sim</option>
             <option value="false">Não</option>
         </select>
+        <button class="btn-delete" onclick="removerElemento(this)">Deletar</button>
     `;
     container.appendChild(novaData);
 }
@@ -132,3 +138,20 @@ function fecharPopup() {
         document.body.removeChild(popup);
     }
 }
+
+// Função para remover um elemento
+function removerElemento(button) {
+    button.parentElement.remove();
+}
+
+// Adicionar dias padrão na inicialização
+window.onload = () => {
+    const diasPredefinidos = [
+        { dia_semana: "segunda", hora_inicio: "08:00", hora_fim: "18:00" },
+        { dia_semana: "terça", hora_inicio: "08:00", hora_fim: "18:00" },
+        { dia_semana: "quarta", hora_inicio: "08:00", hora_fim: "18:00" },
+        { dia_semana: "quinta", hora_inicio: "08:00", hora_fim: "18:00" },
+        { dia_semana: "sexta", hora_inicio: "08:00", hora_fim: "18:00" }
+    ];
+    diasPredefinidos.forEach(dia => addDiaSemana(dia));
+};

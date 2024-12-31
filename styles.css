@@ -35,6 +35,15 @@ button:hover {
     background-color: #45a049;
 }
 
+button.btn-delete {
+    background-color: #e74c3c;
+    margin-left: 10px;
+}
+
+button.btn-delete:hover {
+    background-color: #c0392b;
+}
+
 label {
     display: block;
     margin: 10px 0 5px;

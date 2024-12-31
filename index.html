@@ -12,24 +12,7 @@
     <div class="section" id="horario-padrao">
         <h2>Horário Padrão</h2>
         <div id="dias-semana">
-            <div class="dia-semana">
-                <label>Dia da Semana</label>
-                <select class="dia-semana-select">
-                    <option value="segunda">Segunda</option>
-                    <option value="terça">Terça</option>
-                    <option value="quarta">Quarta</option>
-                    <option value="quinta">Quinta</option>
-                    <option value="sexta">Sexta</option>
-                    <option value="sábado">Sábado</option>
-                    <option value="domingo">Domingo</option>
-                </select>
-                <div class="periodo">
-                    <label>Início:</label>
-                    <input type="time" class="hora-inicio" />
-                    <label>Fim:</label>
-                    <input type="time" class="hora-fim" />
-                </div>
-            </div>
+            <!-- Horários padrão serão adicionados automaticamente pelo script -->
         </div>
         <button onclick="addDiaSemana()">+ Adicionar Dia</button>
     </div>
@@ -48,6 +31,7 @@
                     <label>Fim:</label>
                     <input type="time" class="hora-fim" />
                 </div>
+                <button class="btn-delete" onclick="removerElemento(this)">Deletar</button>
             </div>
         </div>
         <button onclick="addIntervalo()">+ Adicionar Intervalo</button>
@@ -64,6 +48,7 @@
                     <option value="true">Sim</option>
                     <option value="false">Não</option>
                 </select>
+                <button class="btn-delete" onclick="removerElemento(this)">Deletar</button>
             </div>
         </div>
         <button onclick="addDataEspecifica()">+ Adicionar Data</button>
